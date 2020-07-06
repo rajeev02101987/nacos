@@ -6,6 +6,9 @@ notifications:
   on_success: change
   on_failure: always
 
+arch:
+  - arm64
+  - amd64
 language: java
 
 matrix:
