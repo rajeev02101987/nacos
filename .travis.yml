@@ -22,10 +22,12 @@ matrix:
 jdk:
   - openjdk11
   - openjdk8
-    sudo apt-get install openjdk-8-jdk;
-    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64;
-    export PATH=$JAVA_HOME:$PATH;
-
+     - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
+         sudo apt-get install openjdk-8-jdk;
+         export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64;
+         export PATH=$JAVA_HOME:$PATH;
+      fi
+   
 before_install:
   - echo 'MAVEN_OPTS="$MAVEN_OPTS -Xmx1024m -XX:MaxPermSize=512m -XX:+BytecodeVerificationLocal"' >> ~/.mavenrc
   - cat ~/.mavenrc
