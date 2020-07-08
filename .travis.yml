@@ -16,9 +16,12 @@ matrix:
     # On OSX, run with default JDK only.
     # - os: osx
     # On Linux, run with specific JDKs only.
-    - os: linux
+    - arch: amd64
+      os: linux
       env: CUSTOM_JDK="oraclejdk8"
-
+    - arch: arm64
+      os: linux
+      env: CUSTOM_JDK="oraclejdk8"
 jdk:
   - openjdk11
   - openjdk8
